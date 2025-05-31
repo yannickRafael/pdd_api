@@ -47,6 +47,21 @@ def update_estudante():
 
 @estudante_bp.route('/', methods=['DELETE'])
 def delete_estudante():
-    data = request.form
-    print(data)
+    form = request.form
+    required_fields = ['e_id']
+    missing_fields = []
+
+    for field in required_fields:
+        if field not in form:
+            missing_fields.append(field)
+    if missing_fields:
+        return jsonify({"error": f"Missing required fields: {', '.join(missing_fields)}"}), 400 
+    
+    e_id = form.get('e_id')
+    e_edited_by = form.get('e_edited_by', None)
+
+
+    response = Estudante_Service.delete_estudante(e_id, e_edited_by)
+    
+    return response
 
