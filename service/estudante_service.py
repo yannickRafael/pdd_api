@@ -76,3 +76,40 @@ class Estudante_Service:
                 "status": code,
                 "data": None
             }), code    
+        
+    def delete_estudante(e_id, e_edited_by):
+        """Delete an existing estudante in the database."""
+        
+        db = get_db_connection()
+        try:
+            query = "SELECT * FROM delete_estudante(%s, %s);"
+            db.execute(query, (e_id, e_edited_by))
+            result = db.fetchone()
+            print(result)
+            db.connection.commit()
+            return jsonify({
+                    "message": "Estudante deleted successfully", 
+                    "success": True,
+                    "status": 200,
+                    "data": result
+                }), 200
+        except psycopg2.Error as e:
+            print(str(e))
+            message, code = get_error_message(e.diag.message_detail)
+            db.connection.rollback()
+            return jsonify({
+                "message": message,
+                "success": False,
+                "status": code,
+                "data": None
+            }), code
+        except Exception as e:
+            print(str(e))
+            message, code = get_error_message(e.diag.message_detail)
+            db.connection.rollback()
+            return jsonify({
+                "message": message,
+                "success": False,
+                "status": code,
+                "data": None
+            }), code 
