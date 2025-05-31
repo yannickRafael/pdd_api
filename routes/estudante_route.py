@@ -17,16 +17,33 @@ def create_estudante():
     
     e_nome = form.get('e_nome')
     e_code = form.get('e_code')
+    e_created_by = form.get('e_created_by', None)
 
-    response = Estudante_Service.create_estudante(e_nome, e_code)
+    response = Estudante_Service.create_estudante(e_nome, e_code, e_created_by)
     
     return response
 
 
 @estudante_bp.route('/', methods=['PUT'])
 def update_estudante():
-    data = request.form
-    print(data)
+    form = request.form
+    required_fields = ['e_id', 'e_nome']
+    missing_fields = []
+
+    for field in required_fields:
+        if field not in form:
+            missing_fields.append(field)
+    if missing_fields:
+        return jsonify({"error": f"Missing required fields: {', '.join(missing_fields)}"}), 400 
+    
+    e_nome = form.get('e_nome')
+    e_id = form.get('e_id')
+    e_edited_by = form.get('e_edited_by', None)
+
+
+    response = Estudante_Service.update_estudante(e_id, e_nome, e_edited_by)
+    
+    return response
 
 @estudante_bp.route('/', methods=['DELETE'])
 def delete_estudante():
