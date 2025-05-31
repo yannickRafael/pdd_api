@@ -30,6 +30,22 @@ class Config:
         "E-ID-NV": {
             "message": "e_id not valid",
             "code": 404
-        }
+        },
+        "CU-NOME-MP": {
+            "message": "cu_nome missing parameter",
+            "code": 400
+        },
+        "CU-CODE-MP": {
+            "message": "cu_code missing parameter",
+            "code": 400
+        },
+        "CU-ID-MP": {
+            "message": "cu_id missing parameter",
+            "code": 400
+        },
+        "CU-ID-NV": {
+            "message": "cu_id not valid",
+            "code": 404
+        },
     }
 
