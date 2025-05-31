@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from service.estudante_service import Estudante_Service
 
-estudante_bp = Blueprint('estudante_bp', __name__, url_prefix='/staff')
+estudante_bp = Blueprint('estudante_bp', __name__)
 
 @estudante_bp.route('/', methods=['POST'])
 def create_estudante():
