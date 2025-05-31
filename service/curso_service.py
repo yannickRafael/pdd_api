@@ -43,13 +43,13 @@ class Curso_Service:
                 "data": None
             }), code
         
-    def update_curso(e_id, cu_nome, cu_code, e_edited_by):
+    def update_curso(cu_id, cu_nome, cu_code, cu_edited_by):
         """Update an existing curso in the database."""
         
         db = get_db_connection()
         try:
             query = "SELECT * FROM update_curso(%s, %s, %s, %s);"
-            db.execute(query, (e_id, cu_nome, cu_code, e_edited_by))
+            db.execute(query, (cu_id, cu_nome, cu_code, cu_edited_by))
             result = db.fetchone()
             print(result)
             db.connection.commit()
@@ -80,13 +80,13 @@ class Curso_Service:
                 "data": None
             }), code    
         
-    def delete_curso(e_id, e_edited_by):
+    def delete_curso(cu_id, cu_edited_by):
         """Delete an existing curso in the database."""
         
         db = get_db_connection()
         try:
             query = "SELECT * FROM delete_curso(%s, %s);"
-            db.execute(query, (e_id, e_edited_by))
+            db.execute(query, (cu_id, cu_edited_by))
             result = db.fetchone()
             print(result)
             db.connection.commit()

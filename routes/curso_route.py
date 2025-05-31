@@ -47,9 +47,9 @@ def update_curso():
     return response
 
 @curso_bp.route('/', methods=['DELETE'])
-def deletc_curso():
+def delete_curso():
     form = request.form
-    required_fields = ['c_id']
+    required_fields = ['cu_id']
     missing_fields = []
 
     for field in required_fields:
@@ -58,11 +58,11 @@ def deletc_curso():
     if missing_fields:
         return jsonify({"error": f"Missing required fields: {', '.join(missing_fields)}"}), 400 
     
-    c_id = form.get('c_id')
-    c_edited_by = form.get('c_edited_by', None)
+    cu_id = form.get('cu_id')
+    cu_edited_by = form.get('cu_edited_by', None)
 
 
-    response = Curso_Service.deletc_curso(c_id, c_edited_by)
+    response = Curso_Service.delete_curso(cu_id, cu_edited_by)
     
     return response
 
