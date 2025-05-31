@@ -9,3 +9,27 @@ class Config:
     DB_NAME = os.environ.get('DB_NAME')
     DB_USER = os.environ.get('DB_USER')
     DB_PASSWORD = os.environ.get('DB_PASSWORD')
+
+    error_codes = {
+        "SAE": {
+            "message": "Student Already Exists",
+            "code": 409
+        },
+        "E-NOME-MP": {
+            "message": "e_nome missing parameter",
+            "code": 400
+        },
+        "E-CODE-MP": {
+            "message": "e_code missing parameter",
+            "code": 400
+        },
+        "E-ID-MP": {
+            "message": "e_id missing parameter",
+            "code": 400
+        },
+        "E-ID-NV": {
+            "message": "e_id not valid",
+            "code": 404
+        }
+    }
+
