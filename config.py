@@ -11,7 +11,7 @@ class Config:
     DB_PASSWORD = os.environ.get('DB_PASSWORD')
 
     error_codes = {
-        "SAE": {
+        "E-AE": {
             "message": "Student Already Exists",
             "code": 409
         },
@@ -46,6 +46,14 @@ class Config:
         "CU-ID-NV": {
             "message": "cu_id not valid",
             "code": 404
+        },
+        "CU-AE": {
+            "message": "Course Already Exists",
+            "code": 409
+        },
+        "CA-AE": {
+            "message": "Subject Already Exists",
+            "code": 409
         },
     }
 

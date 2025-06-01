@@ -48,4 +48,3 @@ SELECT * FROM create_performance(68, 6, 3);
 SELECT * FROM create_performance(90, 9, 3);
 SELECT * FROM update_performance(1, 110);
 SELECT * FROM delete_performance(1);
-
