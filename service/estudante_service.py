@@ -30,8 +30,9 @@ class Estudante_Service:
                 "status": code,
                 "data": None
             }), code
-        except Exception as e:
-            message, code = get_error_message(e.diag.message_detail)
+        except Exception as e: 
+            print(str(e))
+            message, code = get_error_message("")
             db.connection.rollback()
             return jsonify({
                 "message": message,
@@ -68,7 +69,7 @@ class Estudante_Service:
             }), code
         except Exception as e:
             print(str(e))
-            message, code = get_error_message(e.diag.message_detail)
+            message, code = get_error_message("")
             db.connection.rollback()
             return jsonify({
                 "message": message,
@@ -105,7 +106,7 @@ class Estudante_Service:
             }), code
         except Exception as e:
             print(str(e))
-            message, code = get_error_message(e.diag.message_detail)
+            message, code = get_error_message("")
             db.connection.rollback()
             return jsonify({
                 "message": message,
