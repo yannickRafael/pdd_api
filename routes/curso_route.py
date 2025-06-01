@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from service.curso_service import Curso_Service
 
-curso_bp = Blueprint('curso_bp', __name__, url_prefix='/curso')
+curso_bp = Blueprint('curso_bp', __name__)
 
 @curso_bp.route('/', methods=['POST'])
 def create_curso():
