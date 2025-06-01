@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from service.cadeira_service import Cadeira_Service
 
-cadeira_bp = Blueprint('cadeira_bp', __name__, url_prefix='/cadeira')
+cadeira_bp = Blueprint('cadeira_bp', __name__)
 
 @cadeira_bp.route('/', methods=['POST'])
 def create_cadeira():
