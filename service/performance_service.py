@@ -42,7 +42,7 @@ class Performance_Service:
                 "data": None
             }), code
         
-    def update_performance(p_id, p_nota, p_eid, p_aid, p_edited_by):
+    def update_performance(p_id, p_nota, p_edited_by):
         """Update existing performance in the database."""
         
         db = get_db_connection()
