@@ -45,7 +45,7 @@ class Avaliacao_Service:
         """Update existing assessment in the database."""
         db = get_db_connection()
         try:
-            query = "SELECT * FROM update_avaliacao(%s, %s, %s, %s, %s, %s, %s);"
+            query = "SELECT * FROM update_avaliacao(%s, %s, %s, %s, %s, %s);"
             db.execute(query, (a_id, a_nome, a_code, a_caid, a_nota_max, a_edited_by))
             result = db.fetchone()
             print(result)
