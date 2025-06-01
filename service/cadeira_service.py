@@ -41,14 +41,14 @@ class Cadeira_Service:
                 "data": None
             }), code
         
-    def update_cadeira(p_ca_id, p_ca_nome, p_ca_code, p_ca_cuid, p_ca_link, p_ca_edited_by):
+    def update_cadeira(ca_id, ca_nome, ca_code, ca_cuid, ca_link, ca_edited_by):
 
         """Update an existing curso in the database."""
         
         db = get_db_connection()
         try:
             query = "SELECT * FROM update_cadeira(%s, %s, %s, %s, %s, %s);"
-            db.execute(query, (p_ca_id, p_ca_nome, p_ca_code, p_ca_cuid, p_ca_link, p_ca_edited_by))
+            db.execute(query, (ca_id, ca_nome, ca_code, ca_cuid, ca_link, ca_edited_by))
             result = db.fetchone()
             print(result)
             db.connection.commit()
