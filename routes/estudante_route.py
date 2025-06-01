@@ -38,10 +38,11 @@ def update_estudante():
     
     e_nome = form.get('e_nome', None)
     e_id = form.get('e_id')
+    e_code = form.get('e_code', None)
     e_edited_by = form.get('e_edited_by', 0)
 
 
-    response = Estudante_Service.update_estudante(e_id, e_nome, e_edited_by)
+    response = Estudante_Service.update_estudante(e_id, e_nome, e_code, e_edited_by)
     
     return response
 
