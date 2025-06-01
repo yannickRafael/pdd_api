@@ -9,7 +9,7 @@ class Avaliacao_Service:
         """Create new assessment in the database."""
         db = get_db_connection()
         try:
-            query = "SELECT * FROM create_avaliacao(%s, %s, %s, %s, %s, %s);"
+            query = "SELECT * FROM create_avaliacao(%s, %s, %s, %s, %s);"
             db.execute(query, (a_nome, a_code, a_caid, a_nota_max, a_created_by))
             result = db.fetchone()
             print(result)
