@@ -6,7 +6,7 @@ avaliacao_bp = Blueprint('avaliacao_bp', __name__)
 @avaliacao_bp.route('/', methods=['POST'])
 def create_avaliacao():
     form = request.form
-    required_fields = ['a_nome', 'a_code', 'a_caid', 'a_nota_max']
+    required_fields = ['a_nome', 'a_code', 'ca_id', 'a_nota_max']
     missing_fields = []
 
     for field in required_fields:
