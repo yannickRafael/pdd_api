@@ -40,13 +40,13 @@ class Estudante_Service:
                 "data": None
             }), code
         
-    def update_estudante(e_id, e_nome, e_edited_by):
+    def update_estudante(e_id, e_nome, e_code, e_edited_by):
         """Update an existing estudante in the database."""
         
         db = get_db_connection()
         try:
-            query = "SELECT * FROM update_estudante(%s, %s, %s);"
-            db.execute(query, (e_id, e_nome, e_edited_by))
+            query = "SELECT * FROM update_estudante(%s, %s, %s, %s);"
+            db.execute(query, (e_id, e_nome, e_code, e_edited_by))
             result = db.fetchone()
             print(result)
             db.connection.commit()
